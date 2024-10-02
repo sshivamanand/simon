@@ -12,6 +12,7 @@ body {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
+  cursor: pointer;
 }
 
 .container {
@@ -34,7 +35,7 @@ body {
   margin: 10px;
   border: 10px black solid;
   border-radius: 20px;
-  cursor: pointer;
+  cursor: auto;
 }
 
 .pressed {
