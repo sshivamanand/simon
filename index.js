@@ -1,7 +1,6 @@
 var level = 1;
 var simon = [];
 var index = 0;
-var c = 0;
 
 function playSound(file) {
   var audio = new Audio("sounds/" + file + ".mp3");
@@ -13,18 +12,12 @@ function gameOver() {
   simon = [];
   level = 1;
   index = 0;
-  c = 0;
+  c = 1;
   $("body").css("background-color", "rgb(212, 47, 59)");
   $("#top-text").text("GAME OVER!");
-  $("#top-text").after('<p class="temp-para"> Refresh to Restart </p>');
-
-  $(".button").off("click");
-  $(document).off("keydown");
-
-  // $(document).off("keydown").on("keydown", function () {
-  //   $(".temp-para").remove();
-  //   onPlay();
-  // });
+  $("#top-text").after(
+    '<p class="temp-para"> Refresh the site to Restart </p>'
+  );
 }
 
 function check(val) {
@@ -118,19 +111,19 @@ function onPlay() {
 }
 
 $(document).ready(function () {
-  $(document).on("keydown", function () {
+  let c = 0;
+  $("#top-text").on("click", function () {
     if (c === 0) {
       c = 1;
       console.log("Write the command - 'console.log(simon)'");
       console.log("0 - yellow, 1 - blue, 2 - red, 3 - green.");
       $("#top-text").text("Welcome!");
       playSound("start");
+      $("#top-text").css("cursor", "default");
       setTimeout(() => {
         onPlay();
       }, 2500);
     }
   });
-
   gameCheck();
 });
-
